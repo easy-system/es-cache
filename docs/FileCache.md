@@ -33,6 +33,8 @@ $cache->remove('foo');
 ```
 
 # The namespace
+
+## Change namespace
 By default, the adapter uses a `default` namespace to store variables.
 To change the namespace:
 ```
@@ -43,3 +45,9 @@ with the `Foo` namespace.
 
 An instance of the adapter with the same namespace will be the same anywhere in
 the code.
+
+## Cleaning namespace
+To remove all variables from the namespace:
+```
+$cache->clearNamespace();
+```
