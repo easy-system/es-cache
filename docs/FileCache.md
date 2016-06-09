@@ -14,10 +14,17 @@ To check the state of the adapter, use the method of `isEnabled()`.
 $foo = new \stdClass();
 $cache->set('foo', $foo);
 ```
+In the example used above the lifetime of variables defined for the default 
+lifetime adapter. To set the lifetime for a specific variable:
+```
+$foo = new \stdClass();
+$cache->set('foo', $foo, 360);
+```
+The lifetime of a variable is set in seconds.
 
 ## Retrive variable
 ```
-$foo = $cache->get('foo);
+$foo = $cache->get('foo');
 ```
 
 ## Remove variable
