@@ -1,0 +1,23 @@
+{
+    "name": "easy-system/es-cache",
+    "description": "Easy System Cache",
+    "authors": [
+        {
+            "name": "Damon Smith",
+            "email": "damon.easy.system@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^5.5 || ^7.0",
+        "easy-system/es-component": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Es\\Cache\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { "Es\\Cache\\Test\\": "test/" }
+    },
+    "minimum-stability": "dev"
+}

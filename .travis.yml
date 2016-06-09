@@ -1,0 +1,19 @@
+language: php
+
+php:
+    - '5.5'
+    - '5.6'
+    - '7'
+
+before_install:
+    - composer self-update
+    - composer require phpunit/phpunit:4.8.* satooshi/php-coveralls:dev-master
+    - composer install
+
+script:
+    - mkdir -p build/logs
+    - phpunit --configuration phpunit.xml.dist --coverage-clover build/logs/clover.xml
+
+after_success:
+    - php vendor/bin/coveralls
+  
