@@ -17,6 +17,15 @@ use Es\Component\ComponentInterface;
 class Component implements ComponentInterface
 {
     /**
+     * The configuration of services.
+     *
+     * @var array
+     */
+    protected $servicesConfig = [
+        'Cache' => 'Es\Cache\CacheFactory::make',
+    ];
+
+    /**
      * The current version of component.
      *
      * @var string
@@ -31,5 +40,15 @@ class Component implements ComponentInterface
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * Gets the configuration of services.
+     *
+     * @return array The configuration of services
+     */
+    public function getServicesConfig()
+    {
+        return $this->servicesConfig;
     }
 }
