@@ -122,11 +122,10 @@ class Example
     {
         $cache = $this->getCache();
         $foo   = $cache->get('foo');
-        if ($foo) {
-            return $foo;
+        if (! $foo) {
+            $foo = $this->retrieveDataFromDataBase();
+            $cache->set('foo', $foo);
         }
-        $foo = $this->retriveDataFromDataBase();
-        $cache->set('foo', $foo);
 
         return $foo;
     }
