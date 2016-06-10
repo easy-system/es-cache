@@ -84,3 +84,52 @@ To remove all variables from the namespace:
 ```
 $cache->clearNamespace();
 ```
+
+# The typical usage
+
+This example, which does not depend on whether the adapter is enabled.
+If the cache is enabled globally for the entire system, the cache will be used.
+Otherwise, the data will be obtained in a conventional manner:
+
+```
+use Es\Cache\Adapter\AbstractCache;
+use Es\Services\ServicesTrait;
+
+class Example
+{
+    use ServicesTrait;
+
+    protected $cache;
+
+    public function setCache(AbstractCache $cache)
+    {
+        $this->cache = $cache->withNamespace('example');
+    }
+
+    public function getCache()
+    {
+        if (! $this->cache) {
+            $services = $this->getServices();
+            $cache    = $services->get('Cache');
+            $this->setCache($cache);
+        }
+
+        return $this->cache;
+    }
+
+
+    public function getData()
+    {
+        $cache = $this->getCache();
+        $foo   = $cache->get('foo');
+        if ($foo) {
+            return $foo;
+        }
+        $foo = $this->retriveDataFromDataBase();
+        $cache->set('foo', $foo);
+
+        return $foo;
+    }
+}
+```
+
