@@ -76,8 +76,8 @@ $cache = $cache->withNamespace('Foo');
 The method `withNamespace('Foo')` will return a new instance of the adapter
 with the `Foo` namespace.
 
-An instance of the adapter with the same namespace will be the same anywhere in
-the code.
+If the package is used as component of System, an instance of the adapter with 
+the same namespace will be the same anywhere in the code.
 
 ## Cleaning namespace
 To remove all variables from the namespace:
