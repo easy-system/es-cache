@@ -7,7 +7,7 @@
          verbose = "true"
 >
     <testsuites>
-        <testsuite name="Easy System Cache Test Suite">
+        <testsuite name="Easy System - Cache Test Suite">
             <directory>./test/</directory>
         </testsuite>
     </testsuites>
