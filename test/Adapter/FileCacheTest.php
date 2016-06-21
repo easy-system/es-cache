@@ -18,7 +18,7 @@ class FileCacheTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->tempDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'es-cache-test';
+        $this->tempDir = sys_get_temp_dir() . PHP_DS . 'es-cache-test';
         if (file_exists($this->tempDir) && is_dir($this->tempDir)) {
             if (! is_writable($this->tempDir)) {
                 $this->fail(sprintf(
@@ -55,7 +55,7 @@ class FileCacheTest extends \PHPUnit_Framework_TestCase
         if (substr(PHP_OS, 0, 3) == 'WIN') {
             $this->markTestSkipped('Not testable on windows.');
         }
-        $protected = $this->tempDir . DIRECTORY_SEPARATOR . 'foo';
+        $protected = $this->tempDir . PHP_DS . 'foo';
         mkdir($protected, 0400);
         $options = [
             'basedir' => $protected,
@@ -98,7 +98,7 @@ class FileCacheTest extends \PHPUnit_Framework_TestCase
             'basedir'           => $this->tempDir,
             'hashing_algorithm' => 'crc32',
         ];
-        $namespaceDir = $this->tempDir . DIRECTORY_SEPARATOR . hash('crc32', 'default');
+        $namespaceDir = $this->tempDir . PHP_DS . hash('crc32', 'default');
         mkdir($namespaceDir, 0500, true);
         $cache = new FileCache($options);
         $this->setExpectedException('RuntimeException');
@@ -114,7 +114,7 @@ class FileCacheTest extends \PHPUnit_Framework_TestCase
             'basedir'           => $this->tempDir,
             'hashing_algorithm' => 'crc32',
         ];
-        $namespaceDir = $this->tempDir . DIRECTORY_SEPARATOR . hash('crc32', 'default');
+        $namespaceDir = $this->tempDir . PHP_DS . hash('crc32', 'default');
         mkdir($namespaceDir, 0300, true);
         $cache = new FileCache($options);
         $this->setExpectedException('RuntimeException');
@@ -542,9 +542,9 @@ class FileCacheTest extends \PHPUnit_Framework_TestCase
         $hash = function ($name) use ($algorithm) {
             return hash($algorithm, $name);
         };
-        $path = $basedir . DIRECTORY_SEPARATOR . $hash($namespace);
+        $path = $basedir . PHP_DS . $hash($namespace);
         if ($fileName) {
-            $path .= DIRECTORY_SEPARATOR . $hash($fileName) . '.dat';
+            $path .= PHP_DS . $hash($fileName) . '.dat';
 
             return $path;
         }

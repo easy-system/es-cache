@@ -364,9 +364,9 @@ class FileCache extends AbstractCache
         $hash = function ($name) {
             return hash($this->hashingAlgorithm, $name);
         };
-        $path = $this->basedir . DIRECTORY_SEPARATOR . $hash($this->namespace);
+        $path = $this->basedir . PHP_DS . $hash($this->namespace);
         if ($variableName) {
-            $path .= DIRECTORY_SEPARATOR . $hash($variableName) . '.dat';
+            $path .= PHP_DS . $hash($variableName) . '.dat';
 
             return $path;
         }
