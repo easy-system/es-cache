@@ -92,7 +92,7 @@ If the cache is enabled globally for the entire system, the cache will be used.
 Otherwise, the data will be obtained in a conventional manner:
 
 ```
-use Es\Cache\Adapter\AbstractCache;
+use Es\Cache\AbstractCache;
 use Es\Services\ServicesTrait;
 
 class Example
