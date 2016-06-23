@@ -147,10 +147,10 @@ class CacheFactory
         $options['namespace'] = $namespace;
 
         $cache = new $class($options);
-        if (! $cache instanceof Adapter\AbstractCache) {
+        if (! $cache instanceof AbstractCache) {
             throw new DomainException(sprintf(
                 'The class "%s" of adapter "%s" must inherit '
-                . 'an "Es\Cache\Adapter\AbstractCache".',
+                . 'an "Es\Cache\AbstractCache".',
                 $class,
                 $adapter
             ));

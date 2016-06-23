@@ -9,7 +9,7 @@
  */
 namespace Es\Cache\Test\Adapter;
 
-use Es\Cache\Adapter\AbstractCache;
+use Es\Cache\AbstractCache;
 
 class AbstractCacheTest extends \PHPUnit_Framework_TestCase
 {

@@ -7,7 +7,7 @@
  *
  * @author Damon Smith <damon.easy.system@gmail.com>
  */
-namespace Es\Cache\Adapter;
+namespace Es\Cache;
 
 /**
  * Representation of abstract cache adapter.

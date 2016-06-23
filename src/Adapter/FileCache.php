@@ -9,6 +9,7 @@
  */
 namespace Es\Cache\Adapter;
 
+use Es\Cache\AbstractCache;
 use Exception;
 use InvalidArgumentException;
 use RuntimeException;

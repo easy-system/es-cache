@@ -9,7 +9,7 @@
  */
 namespace Es\Cache\Test;
 
-use Es\Cache\Adapter\AbstractCache;
+use Es\Cache\AbstractCache;
 
 class FakeAdapter extends AbstractCache
 {
